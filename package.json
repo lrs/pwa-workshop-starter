@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "del 'dist/*' '!dist/.git'",
+    "clean": "del dist\\* /F /Q",
     "build": "yarn run clean && yarn run build:css && yarn run build:js && yarn run build:html && yarn run build:img && yarn run build:thumbs",
     "build:css": "postcss -c postcss.config.js -o dist/assets/css/main.css src/css/main.css",
     "build:js": "webpack --config webpack.config.js",
-    "build:html": "cpy 'src/*.html' dist",
+    "build:html": "cpy src/*.html dist",
     "build:img": "imagemin src/img/* --out-dir=dist/assets/img",
     "build:thumbs": "imagemin src/img/thumbs/* --out-dir=dist/assets/img/thumbs",
     "watch:css": "watch 'yarn run build:css' src/css/",
